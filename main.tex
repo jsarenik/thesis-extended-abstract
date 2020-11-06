@@ -11,23 +11,18 @@
 \fi
 
 \usepackage[acronym]{glossaries}
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{url}
+
 \makeglossaries
 \input{glossaryEntries.tex}
 
 \begin{document}
-%
-% paper title
-% Titles are generally capitalized except for words such as a, an, and, as,
-% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
-% not capitalized unless they are the first or last word of the title.
-% Linebreaks \\ can be used within to get better formatting as desired.
-% Do not put math or special symbols in the title.
+
 \title{Lightning Distributed Routing: A New Approach To Payment Routing In The Lightning Network}
 
-
-% author names and affiliations
-% use a multiple column layout for up to three different
-% affiliations
 \author{João Valente\\
 Department of Electrical and Computer Engineering\\
 Instituto Superior Técnico\\
@@ -36,10 +31,15 @@ Email: joaosvalente@tecnico.ulisboa.pt}
 
 % make the title area
 \maketitle
+\thispagestyle{plain}
+\pagestyle{plain}
 
 \input{abstract.tex}
 \input{introduction.tex}
-\input{conclusion.tex}
+\input{background.tex}
+\input{routing.tex}
+\input{simulation.tex}
+\input{conclusions.tex}
 \input{biblio.tex}
 
 \end{document}
