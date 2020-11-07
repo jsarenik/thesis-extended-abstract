@@ -33,6 +33,7 @@ After some testing with the simulator parameters were set to the ones in table \
 on the order of dozens of nodes. The number of gossip messages was set to 10 on the belief that on a real network there would be at least an order of magnitude more gossip messages than payments. Mean and variance weights were set to start low so payment volumes will be low and increase the chance of success for payments with the variance being half of the mean so the distribution is acceptably spread out.
 
 \begin{table}[H]
+\centering
 \resizebox{\columnwidth}{!}{\begin{tabular}{|l|l|l|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -56,6 +57,7 @@ The design of the address validation rules aims to promote a healthy network thr
 In the end, the simulation returned the routing metrics found in table \ref{table:simulation_results1}.
 
 \begin{table}[H]
+\centering
 \begin{tabular}{l|l|l|}
 \cline{2-3}
 \rowcolor[HTML]{C0C0C0} 
@@ -74,6 +76,7 @@ The simulation gives some insight on the how payments fail, these can happen in 
 The \acrfull{apl} is bigger when using \acrshort{ldr}. This is expected because, unlike what happens with \acrshort{spr}, \acrshort{ldr} does not always choose the shortest path to the destination.
 
 \begin{table}[H]
+\centering
 \resizebox{\columnwidth}{!}{\begin{tabular}{|l|l|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
