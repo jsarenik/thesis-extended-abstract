@@ -76,6 +76,7 @@ Destination & Max. Volume   & Fee   \\ \hline
 B           & 2             & 0.1   \\ \hline
 C           & 1             & 0.01  \\ \hline
 \end{tabular}
+\caption{Gossip message based on the routing table from Table \ref{table:routing_table_initial_a}}
 \label{table:routing_gossip}
 \end{table}
 
@@ -147,7 +148,7 @@ Routing gossip messages must be frequently exchanged between neighbours so that 
 
 \subsubsection{P2P Networking Module}
 
-The peer-to-peer networking module is the gateway between the other components of \acrshort{ldr} and the rest of the nodes in the network. It provides communication with other nodes while also authenticating them, this is, making sure communications only happens between nodes with valid \acrshort{ldr} addresses.
+The peer-to-peer networking module is the gateway between the other components of \acrshort{ldr} and the rest of the nodes in the network. It provides a private connection to other nodes while also authenticating them, this is, making sure communication only happens between nodes with valid \acrshort{ldr} addresses.
 
 \subsubsection{Routing Module}
 
