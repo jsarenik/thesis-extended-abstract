@@ -11,7 +11,7 @@ The simulation has the following parameters:
     \item Mean weight
     \item \acrfull{sd} weight
 \end{itemize}
-The parameter that defines the number of nodes is used to control the size of the network, opening the possibility of making it smaller and thus easier to run simulations on. Nodes are removed randomly but as a result of working with a scale-free network there is an inherited robustness \cite{network_science} which reduces the resulting fragmentation to a minimum, a phenomenon that is studied in \cite{ln_topological}. When the network is fragmented as a result of the removal of nodes all the connected components but the one with the most nodes are removed so the simulation can run on a one component graph.\\
+The parameter that defines the number of nodes is used to control the size of the network, opening the possibility of making it smaller and thus easier to run simulations on. Nodes are removed randomly but as a result of working with a scale-free network there is an inherent robustness \cite{network_science} which reduces the resulting fragmentation to a minimum, a phenomenon that is studied in \cite{ln_topological}. When the network is fragmented as a result of the removal of nodes all the connected components but the one with the most nodes are removed so the simulation can run on a one component graph.\\
 $P$, the random variable that represents the amount for each payment, follows a normal distribution with free $(\mu,\,\sigma^{2})$ parameters. Both these parameters are determined using equations \ref{eq:distribution_mu} and \ref{eq:distribution_sigma}. 
 \begin{equation}
     \mu = Mean weight * Median Channel Balance
