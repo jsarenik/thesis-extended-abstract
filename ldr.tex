@@ -34,7 +34,7 @@ The routing module is responsible for receiving, processing and forwarding or re
 
 The goal of the address database is to keep an updated list of every valid \acrshort{ldr} address so the node can always confirm the authenticity of the node he is communicating with. When a new address is registered it is also associated with a public key that can, from that point forward, be used to verify signatures that could only be constructed by the node that registered the address associated with that public key.\\
 To populate the database with every valid address the entire set of blockchain transactions are analyzed and validated according to a specific set of rules. Locally validating the registration of every address allows for the existence of a decentralized and eventually consistent address database which does not rely on a central authority for its own existence and maintenance. Although it would be simpler to use a centralized scheme to maintain an address database this solution maintains the inherent decentralization of the bitcoin protocol stack while also offering a bigger degree of security against all types of attacks that only a centralized solution would be vulnerable against. \\
-The rules designed to validate the address registrations present in special OP\_RETURN blockchain transactions were designed to promote the health of the network. By assigning new addresses based on the addresses of the neighbourhood a relation between a nodes address and their position in the network graph is created. This address assigning method takes inspiration from the centralized version, consisting of the assignment of blocks of addresses by a centralized authority and, like its centralized version, promotes the existence of routing tables with a smaller number of entries who can be grouped together by the use of address masking, much like what it is already done today by the routing tables implemented to support the distance-vector routing protocols mentioned in section \ref{ssec:distancevectorrouting}. Smaller routing tables decrease the computing and storage needs of each node while also reducing the amount of bandwidth needed to share them.
+The rules designed to validate the address registrations present in special OP\_RETURN blockchain transactions were designed to promote the health of the network. By assigning new addresses based on the addresses of the neighbourhood a relation between nodes' addresses and their position in the network graph is created. This address assigning method takes inspiration from the centralized version, consisting of the assignment of blocks of addresses by a centralized authority and, like its centralized version, promotes the existence of routing tables with a smaller number of entries who can be grouped together by the use of address masking, much like what it is already done today by the routing tables implemented to support the distance-vector routing protocols mentioned in section \ref{ssec:distancevectorrouting}. Smaller routing tables decrease the computing and storage needs of each node while also reducing the amount of bandwidth needed to share them.
 
 \subsubsection{Routing Tables}
 \label{sssec:routing_tables}
@@ -50,7 +50,7 @@ Throughout the rest of this section, we will use the example network represented
   \end{center}
 \end{figure}
 
-Nodes populate their initial routing table with the information they have locally available, this is, the information about the distribution of the funds in the channels in which they take part. These entries are never removed from local memory and should always reflect the state of the underlying payment channels. Table \ref{table:routing_table_initial_a} and represents the initial \acrshort{ldr} routing tables of node A.
+Nodes populate their initial routing table with the information they have locally available, this is, the information about the distribution of the funds in the channels in which they take part. These entries are never removed from local memory and should always reflect the state of the underlying payment channels. Table \ref{table:routing_table_initial_a} represents the initial \acrshort{ldr} routing tables of node A.
 
 \begin{table}[H]
 \centering
@@ -65,7 +65,7 @@ C           & 1             & 0.01  & C       \\ \hline
 \label{table:routing_table_initial_a}
 \end{table}
 
-Nodes will then start sharing routing gossip messages containing part or the entirety of their own routing tables. To sharing more about a node's neighbourhood than needed, information about the next hops is omitted from the gossip messages. Table \ref{table:routing_gossip} is an example of what a gossip message based on Node A's initial routing table (\ref{table:routing_table_initial_a}) might look like.
+Nodes will then start sharing routing gossip messages containing part or the entirety of their own routing tables. To prevent sharing more about a node's neighbourhood than needed, information about the next hops is omitted from the gossip messages. Table \ref{table:routing_gossip} is an example of what a gossip message based on Node A's initial routing table (\ref{table:routing_table_initial_a}) might look like.
 
 \begin{table}[H]
 \centering
@@ -110,7 +110,7 @@ D           & 2             & 0.16  & B       \\ \hline
 \end{table}
 
 After the steady-state is reached the network must be able to adapt to the frequent changes in the distribution of the funds in the payment channels.\\
-For example, if A sends 1 BTC to B, making their shared their channel state become (A: 1, B: 2), both nodes will reevaluate their routing tables focusing on the entries in which the next hop is the neighbour that shares the channel in which the payment took place. These reevaluation yields routing table \ref{table:routing_table_payment_a}.
+For example, if A sends 1 BTC to B, making their shared channel state become (A: 1, B: 2), both nodes will reevaluate their routing tables focusing on the entries in which the next hop is the neighbour that shares the channel in which the payment took place. These reevaluation yields routing table \ref{table:routing_table_payment_a}.
 
 \begin{table}[H]
 \centering
