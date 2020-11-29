@@ -82,13 +82,13 @@ It's interesting to understand that, much like in the internet, bitcoin is follo
 
 Every current implementation uses source routing, meaning that the route for a payment is entirely calculated by the sender. Source routing is advantageous in the sense that it preserves the anonymity of the sender and the receiver, preventing any routing node to censor the payment based on its origin or destination.\\
 When calculating a payment path, the sender leverages the information he has about the topology of the network, gathered from watching the payment channels opening and closing through the transactions committed to the blockchain to run a version of the Dijkstra algorithm and construct a possible payment path. \\
-After a route is successfully discovered the overlying payment can still be invalid or fail to be completed. The found route might span more than 20 hops (which collides with the current onion routing implementation), the channel might not have enough capacity for the payment, nodes in the payment route can be uncooperative or it might be the case that at least one of the channels in the route doesn't have the right distribution of funds. For example, given the distribution of funds in the payment channel shared by Charlie and Dave and represented by Figure \ref{fig:payment_channel} it would be impossible for Alice to build a valid payment route that allowed for a 2 BTC payment and included the channel in the direction Charlie-Dave, this is because Charlie has a channel balance of 1 BTC and wouldn't be able to route the payment through. It would, however, and since Dave can send a maximum of 3 BTC to Charlie, be possible to find a route for that payment that uses the payment channel in the Dave-Charlie direction. 
+After a route is successfully discovered the overlying payment can still be invalid or fail to be completed. The found route might span more than 20 hops (which collides with the current onion routing implementation), the channel might not have enough capacity for the payment, nodes in the payment route can be uncooperative or it might be the case that at least one of the channels in the route doesn't have the right distribution of funds. For example, given the distribution of funds in the payment channel shared by Alive and Bob and represented by Figure \ref{fig:payment_channel} it would be impossible for Charlie to build a valid payment route that allowed for a 2 BTC payment and included the channel in the direction Alice-Bob, this is because Alice has a channel balance of 1 BTC and wouldn't be able to route the payment through. It would, however, and since Bob can send a maximum of 3 BTC to Alice, be possible to find a route for that payment that uses the payment channel in the Bob-Alice direction. 
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=0.6\linewidth]{images/payment_channel.png}
-  \caption{Charlie's and Dave's payment channel. It has a capacity of 4 BTC and the state
-(Charlie: 1 BTC, Dave: 3 BTC)}
+  \includegraphics[width=0.6\linewidth]{images/alice_bob_channel.png}
+  \caption{Alice's and Bob's payment channel. It has a capacity of 4 BTC and the state
+(Alice: 1 BTC, Bob: 3 BTC)}
   \label{fig:payment_channel}
   \end{center}
 \end{figure}
